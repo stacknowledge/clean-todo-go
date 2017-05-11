@@ -1,0 +1,6 @@
+CREATE TABLE `users` (
+    `id` INTEGER PRIMARY KEY AUTOINCREMENT,
+    `name` VARCHAR(64) NULL,
+    `email` VARCHAR(64) UNIQUE,
+    `password` VARCHAR(64) NULL
+);
