@@ -1,19 +1,17 @@
 package domain
 
-import "time"
-
 type (
 	TodoRepository interface {
-		Store(todo Todo)
-		FindById(id uint)
-		Update(todo Todo)
-		Delete(id uint)
+		Store(todo *Todo) (int64, error)
+		FindById(id uint) *Todo
+		Update(todo *Todo) (int64, error)
+		Delete(id uint) error
 	}
 
 	Todo struct {
 		ID      uint
 		Title   string
-		Expires time.Time
-		User    User
+		Expires string
+		User    *User
 	}
 )
