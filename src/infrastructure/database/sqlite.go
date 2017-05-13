@@ -1,9 +1,10 @@
-package infrastructure
+package database
 
 import (
 	"database/sql"
 
 	_ "github.com/mattn/go-sqlite3"
+	"github.com/stacknowledge/go-clean-todo/src/infrastructure"
 )
 
 type SqliteHandler struct {
@@ -35,7 +36,7 @@ func (handler *SqliteHandler) Execute(statement string) (int64, error) {
 	return lastInsertedID, nil
 }
 
-func (handler *SqliteHandler) Query(statement string) Row {
+func (handler *SqliteHandler) Query(statement string) infrastructure.Row {
 	result, error := handler.Connection.Query(statement)
 
 	rows := new(SqliteRow)
@@ -54,4 +55,8 @@ func (row *SqliteRow) Scan(dest ...interface{}) {
 
 func (row *SqliteRow) Next() bool {
 	return row.Rows.Next()
+}
+
+func (row *SqliteRow) Close() error {
+	return row.Rows.Close()
 }

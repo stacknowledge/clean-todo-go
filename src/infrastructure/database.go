@@ -8,6 +8,7 @@ type DbHandler interface {
 type Row interface {
 	Scan(params ...interface{})
 	Next() bool
+	Close() error
 }
 
 type DbRepository struct {
