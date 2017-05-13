@@ -16,8 +16,4 @@ func (interactor *UserInteractor) Register(user domain.User) (int64, error) {
 
 func (interactor *UserInteractor) Profile(id uint) *domain.User {
 	return interactor.UserRepository.FindById(id)
-} /*
-
-func (interactor *UserInteractor) ListTodos() []domain.Todo {
-	return interactor.UserRepository.ListTodos()
-}*/
+}

@@ -4,7 +4,7 @@ import (
 	"fmt"
 
 	"github.com/stacknowledge/go-clean-todo/src/domain"
-	infrastructure "github.com/stacknowledge/go-clean-todo/src/infrastructure/database"
+	infrastructure "github.com/stacknowledge/go-clean-todo/src/infrastructure"
 )
 
 type DbUserRepository infrastructure.DbRepository
@@ -29,9 +29,16 @@ func (repo *DbUserRepository) FindById(userId uint) *domain.User {
 		userId,
 	))
 
-	var id uint
-	var email, name, password string
+	return hydrateUserRepositoryDataToDomain(row)
+}
 
+func hydrateUserRepositoryDataToDomain(row infrastructure.Row) *domain.User {
+	var (
+		id                    uint
+		email, name, password string
+	)
+
+	defer row.Close()
 	row.Next()
 	row.Scan(&id, &name, &email, &password)
 

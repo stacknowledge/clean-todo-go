@@ -3,9 +3,7 @@ package domain
 type UserRepository interface {
 	Store(user User) (int64, error)
 	FindById(id uint) *User
-	/*FindByEmail(email string) *User
-	Deactivate(id uint)
-	Activate(id uint)*/
+	//FindByEmail(email string) *User
 }
 
 type User struct {
