@@ -4,7 +4,7 @@ import (
 	"fmt"
 
 	"github.com/stacknowledge/go-clean-todo/src/domain"
-	infrastructure "github.com/stacknowledge/go-clean-todo/src/infrastructure"
+	"github.com/stacknowledge/go-clean-todo/src/infrastructure"
 )
 
 type DbUserRepository infrastructure.DbRepository
@@ -27,6 +27,15 @@ func (repo *DbUserRepository) FindById(userId uint) *domain.User {
 	row := repo.DbHandler.Query(fmt.Sprintf(
 		"SELECT id, name, email, password FROM users WHERE id = '%d' LIMIT 1",
 		userId,
+	))
+
+	return hydrateUserRepositoryDataToDomain(row)
+}
+
+func (repo *DbUserRepository) FindByEmail(email string) *domain.User {
+	row := repo.DbHandler.Query(fmt.Sprintf(
+		"SELECT id, name, email, password FROM users WHERE email = '%v' LIMIT 1",
+		email,
 	))
 
 	return hydrateUserRepositoryDataToDomain(row)
