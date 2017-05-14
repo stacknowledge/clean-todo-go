@@ -3,7 +3,7 @@ package usecases
 import (
 	"errors"
 
-	"github.com/stacknowledge/go-clean-todo/src/domain"
+	"github.com/stacknowledge/clean-todo-go/src/domain"
 	"golang.org/x/crypto/bcrypt"
 )
 
@@ -11,8 +11,8 @@ type UserInteractor struct {
 	UserRepository domain.UserRepository
 }
 
-func (interactor *UserInteractor) Login(username string, password string) (*domain.User, error) {
-	user := interactor.UserRepository.FindByEmail(username)
+func (interactor *UserInteractor) Login(email string, password string) (*domain.User, error) {
+	user := interactor.UserRepository.FindByEmail(email)
 
 	if error := bcrypt.CompareHashAndPassword([]byte(user.Password), []byte(password)); error != nil {
 		return nil, errors.New("Bad credentials!")

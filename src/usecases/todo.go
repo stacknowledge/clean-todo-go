@@ -1,6 +1,6 @@
 package usecases
 
-import "github.com/stacknowledge/go-clean-todo/src/domain"
+import "github.com/stacknowledge/clean-todo-go/src/domain"
 
 type TodoInteractor struct {
 	TodoRepository domain.TodoRepository

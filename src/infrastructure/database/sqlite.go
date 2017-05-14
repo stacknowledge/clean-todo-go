@@ -4,7 +4,7 @@ import (
 	"database/sql"
 
 	_ "github.com/mattn/go-sqlite3"
-	"github.com/stacknowledge/go-clean-todo/src/infrastructure"
+	"github.com/stacknowledge/clean-todo-go/src/infrastructure"
 )
 
 type SqliteHandler struct {

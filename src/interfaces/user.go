@@ -3,8 +3,8 @@ package interfaces
 import (
 	"fmt"
 
-	"github.com/stacknowledge/go-clean-todo/src/domain"
-	"github.com/stacknowledge/go-clean-todo/src/infrastructure"
+	"github.com/stacknowledge/clean-todo-go/src/domain"
+	"github.com/stacknowledge/clean-todo-go/src/infrastructure"
 )
 
 type DbUserRepository infrastructure.DbRepository

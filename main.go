@@ -1,29 +1,15 @@
 package main
 
 import (
-	"net/http"
-
-	"log"
-
-	"strconv"
-
-	"fmt"
-
-	"time"
-
-	"github.com/gorilla/mux"
-	"github.com/stacknowledge/go-clean-todo/src/domain"
-	"github.com/stacknowledge/go-clean-todo/src/infrastructure"
-	"github.com/stacknowledge/go-clean-todo/src/infrastructure/database"
-	"github.com/stacknowledge/go-clean-todo/src/interfaces"
-	"github.com/stacknowledge/go-clean-todo/src/usecases"
+	"github.com/stacknowledge/clean-todo-go/src/delivery"
 )
 
-var userId uint
+//var userId uint
 
 func main() {
-
-	dbHandler, err := database.NewSqliteHandler("./database.sqlite")
+	application := new(delivery.Application)
+	application.Ship()
+	/*dbHandler, err := database.NewSqliteHandler("./database.sqlite")
 	router := mux.NewRouter()
 
 	if err != nil {
@@ -79,5 +65,5 @@ func main() {
 	})
 
 	http.Handle("/", router)
-	http.ListenAndServe(":8080", nil)
+	http.ListenAndServe(":8080", nil)*/
 }
