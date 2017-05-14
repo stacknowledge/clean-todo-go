@@ -1,0 +1,27 @@
+{{template "header.tmpl"}}
+
+{{if .errors}}<div class="alert alert-warning" role="alert">{{ .errors }}</div>{{end}}
+
+<div class="panel panel-success">
+  <div class="panel-heading">Registration</div>
+    
+  <div class="panel-body">
+    <form class="form-signin" action="/register" method="post">
+        <div class="form-group">
+          <input type="name" name="name" class="form-control" value="{{.user.Name}}" placeholder="Name" required autofocus>
+        </div>
+        <div class="form-group">
+          <input type="email" name="email" class="form-control" value="{{.user.Email}}" placeholder="Email" required autofocus>
+        </div>
+        <div class="form-group">
+          <input type="password" name="password" placeholder="Password" class="form-control" required autofocus>
+        </div>
+        <hr>
+        <span class="pull-right"><button class="btn btn-primary pull-left" type="submit">Register</button></span>
+        <span class="pull-left"><a class="btn btn-success" href="/" role="button">Back</a></span>
+      </form>
+  </div>
+</div>
+</div>
+
+{{template "footer.tmpl"}}

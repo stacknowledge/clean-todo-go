@@ -1,13 +1,12 @@
 package api
 
 import (
-	"log"
-
+	"github.com/stacknowledge/clean-todo-go/src/infrastructure"
 	"gopkg.in/gin-gonic/gin.v1"
 )
 
 type ApiCargo struct {
-	Logger log.Logger
+	StorageRepositories map[string]infrastructure.DbHandler
 }
 
 func (cargo *ApiCargo) Load() {

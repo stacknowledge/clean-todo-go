@@ -21,7 +21,7 @@ func (interactor *UserInteractor) Login(email string, password string) (*domain.
 	return user, nil
 }
 
-func (interactor *UserInteractor) Register(user domain.User) (int64, error) {
+func (interactor *UserInteractor) Register(user *domain.User) (int64, error) {
 	return interactor.UserRepository.Store(user)
 }
 

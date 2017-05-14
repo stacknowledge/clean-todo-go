@@ -9,7 +9,7 @@ type (
 	}
 
 	UserRepository interface {
-		Store(user User) (int64, error)
+		Store(user *User) (int64, error)
 		FindById(id uint) *User
 		FindByEmail(email string) *User
 	}

@@ -9,8 +9,7 @@ import (
 )
 
 type Application struct {
-	Cargo  map[string]ShippableCargo
-	Logger log.Logger
+	Cargo map[string]ShippableCargo
 }
 
 func (app *Application) Load() *Application {

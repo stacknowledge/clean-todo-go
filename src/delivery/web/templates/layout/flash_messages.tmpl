@@ -1,0 +1,4 @@
+{{define "flash_messages"}}
+{{if .errors}}<div class="alert alert-warning" role="alert">{{ .errors }}</div>{{end}}
+{{if .success}}<div class="alert alert-success" role="alert">{{.success}}</div>{{end}}
+{{end}}

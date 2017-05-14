@@ -16,7 +16,7 @@ func NewDbUserRepository(dbHandlers map[string]infrastructure.DbHandler) *DbUser
 	}
 }
 
-func (repo *DbUserRepository) Store(user domain.User) (int64, error) {
+func (repo *DbUserRepository) Store(user *domain.User) (int64, error) {
 	return repo.DbHandler.Execute(fmt.Sprintf(
 		"INSERT INTO users (email, name, password) VALUES ('%v', '%v', '%v')",
 		user.Email, user.Name, user.Password,

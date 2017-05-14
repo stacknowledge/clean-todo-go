@@ -1,0 +1,22 @@
+{{template "header.tmpl"}}
+
+<div class="panel panel-info">
+  <div class="panel-heading">Log in</div>
+    
+  <div class="panel-body">
+    <form class="form-signin" action="/login" method="post">
+        <div class="form-group">
+        <input type="email" name="email" class="form-control" value="{{.todo.Title}}" placeholder="Email" required autofocus>
+        </div>
+        <div class="form-group">
+        <input type="password" name="password" placeholder="Password" class="form-control" value="{{.todo.Date}}" required autofocus>
+         </div>
+        <hr>
+        <span class="pull-right"><button class="btn btn-primary pull-left" type="submit">Log in</button></span>
+        <span class="pull-left"><a class="btn btn-success" href="/" role="button">Back</a></span>
+      </form>
+  </div>
+</div>
+</div>
+
+{{template "footer.tmpl"}}
